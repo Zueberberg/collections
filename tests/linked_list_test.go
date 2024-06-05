@@ -83,3 +83,11 @@ func Test_linked_list_findfunc(t *testing.T) {
 		t.Error("LinkedList.FindFunc() node 50 bad sibling nodes:", n.Left, n.Right)
 	}
 }
+
+func Test_linked_list_nil(t *testing.T) {
+	var list collections.LinkedList[int]
+	list.Add(1)
+	if list.Length != 1 || list.Root == nil || list.Root.Value != 1 {
+		t.Error("Nil linked list not changed after Add(1)")
+	}
+}
